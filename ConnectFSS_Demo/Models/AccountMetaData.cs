@@ -13,6 +13,7 @@ namespace ConnectFSS_Demo.Models
         public string name;
 
         [Display(Name = "Balance")]
+        [DataType(DataType.Currency)]
         [Required(ErrorMessage = "This field is required.")]
         public decimal balance;
     }

@@ -25,3 +25,14 @@ INSERT INTO [dbo].[AccountType]
 		   ('IRA'),
 		   ('Brokerage')
 GO
+
+INSERT INTO [dbo].[Account]
+           ([userId], [typeId], [name], [balance])
+     VALUES
+           (1, 1, 'Test account number one.', 999.99),
+		   (2, 1, 'John''s first account', 123.45),
+		   (3, 2, 'Saving for a boat.', 1785.29),
+		   (1, 2, 'The ultimate savings account', 98765.43),
+		   (4, 5, 'Gonna retire someday', 41567.23),
+		   (4, 1, 'For day to day living', 2145.65)
+GO
