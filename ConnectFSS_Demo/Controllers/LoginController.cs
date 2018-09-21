@@ -14,6 +14,8 @@ namespace ConnectFSS_Demo.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            if (Session["userId"] != null) { return RedirectToAction("Index", "Accounts"); }
+
             return View();
         }
 
@@ -32,7 +34,8 @@ namespace ConnectFSS_Demo.Controllers
             {
                 var user = db.Users.First(u => u.username == login.Username);
                 Session["userId"] = user.id;
-                Session["userAdmin]"] = user.is_admin;
+                Session["userName"] = user.first_name + " " + user.last_name;
+                Session["userAdmin"] = user.is_admin;
                 return RedirectToAction("Index", "Accounts");
             }
             else if (login.Password != null)
@@ -41,6 +44,15 @@ namespace ConnectFSS_Demo.Controllers
                 return View("Index");
             }
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            Session["userId"] = null;
+            Session["userName"] = null;
+            Session["userAdmin"] = null;
+
+            return RedirectToAction("Index", "Login");
         }
     }
 }

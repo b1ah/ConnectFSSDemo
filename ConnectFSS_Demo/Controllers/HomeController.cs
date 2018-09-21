@@ -10,6 +10,8 @@ namespace ConnectFSS_Demo.Controllers
     {
         public ActionResult Index()
         {
+            if (Session["userId"] is null) { return RedirectToAction("Index", "Login"); }
+
             return View();
         }
 

@@ -17,6 +17,8 @@ namespace ConnectFSS_Demo.Controllers
         // GET: Users
         public ActionResult Index()
         {
+            if (Session["userId"] is null || !(bool)Session["userAdmin"]) { return RedirectToAction("Index", "Login"); }
+
             return View(db.Users.ToList());
         }
 

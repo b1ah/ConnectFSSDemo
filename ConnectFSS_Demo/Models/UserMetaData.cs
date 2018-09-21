@@ -12,7 +12,6 @@ namespace ConnectFSS_Demo.Models
         [Required(ErrorMessage = "This field is required.")]
         public string username;
 
-        private string _password;
         [Display(Name = "Password")]
         [Required(ErrorMessage = "This field is required.")]
         [DataType(DataType.Password)]

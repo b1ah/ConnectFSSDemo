@@ -6,14 +6,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ConnectFSS_Demo.Models
 {
-    public class AccountMetaData
+    public class AccountTypeMetaData
     {
-        [Display(Name = "Account Name")]
+        [Display(Name = "Type")]
         [Required(ErrorMessage = "This field is required.")]
         public string name;
-
-        [Display(Name = "Balance")]
-        [Required(ErrorMessage = "This field is required.")]
-        public decimal balance;
     }
 }

@@ -171,6 +171,7 @@
     <Compile Include="Models\AccountType.cs">
       <DependentUpon>ConnectFSS_Models.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountTypeMetaData.cs" />
     <Compile Include="Models\PartialClasses.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\UserMetaData.cs" />
@@ -303,6 +304,7 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Logout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -16,14 +16,13 @@
 </head>
 <body>
     <div class="container body-content">
-        <h2>Login</h2>
+        <h3>Login - Connect FSS Demo</h3>
 
         @using (@Html.BeginForm(null, null, FormMethod.Post, new { @class = "login-form" }))
         {
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                @*<h4>Login</h4>*@
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
@@ -66,6 +65,5 @@
 
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
-        @*@RenderSection("scripts", required: false)*@
 </body>
 </html>

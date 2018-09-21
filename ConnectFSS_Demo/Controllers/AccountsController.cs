@@ -17,7 +17,13 @@ namespace ConnectFSS_Demo.Controllers
         // GET: Accounts
         public ActionResult Index()
         {
-            var accounts = db.Accounts.Include(a => a.AccountType).Include(a => a.User);
+            if (Session["userId"] is null) { return RedirectToAction("Index", "Login"); }
+
+            int sessionUserId = (int)Session["userId"];
+            bool sessionUserAdmin = (bool)Session["userAdmin"];
+            var accounts = db.Accounts.Where(a => a.userId == sessionUserId || sessionUserAdmin)
+                .Include(a => a.AccountType).Include(a => a.User)
+                .OrderBy(a => a.AccountType.id);
             return View(accounts.ToList());
         }
 

@@ -8,27 +8,34 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    <div class="d-flex flex-row-reverse">
+        <div class="p-4">Welcome, @Session["userName"] <span style="margin-left:5px;">@Html.ActionLink("logout", "Logout", "Login")</span></div>
+    </div>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" 
-                        style="width: 24px; height: 24px; background-image: url('../../Graphics/DoubleDownArrow_24px.png');
-                        border-width: 0px; background-color: transparent;">
+            @if ((bool)@Session["userAdmin"])
+            {
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"
+                    style="width: 24px; height: 24px; background-image: url('../../Graphics/DoubleDownArrow_24px.png');
+                    border-width: 0px; background-color: transparent;">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    @*<span class="icon-bar"></span>*@
                 </button>
-                @Html.ActionLink("Connect FSS Demo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            }
+                @Html.ActionLink("Connect FSS Demo", "Index", "Accounts", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                </ul>
+            @if ((bool)@Session["userAdmin"])
+            {
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Accounts")</li>
+                        <li>@Html.ActionLink("Users", "Index", "Users")</li>
+                    </ul>
+                </div>
+            }
             </div>
         </div>
-    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
